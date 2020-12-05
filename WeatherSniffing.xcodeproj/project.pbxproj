@@ -74,6 +74,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21ABFA5F257C2D1B006A2B57 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		6B4CCAC224F6D00000354F19 = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +107,7 @@
 				6B4CCAE724F6D02D00354F19 /* Views */,
 				6B4CCAE624F6D02300354F19 /* Controllers */,
 				6B4CCAEA24F6D04C00354F19 /* Helpers */,
-				6B7EDA892572C1D20059F890 /* Extension */,
+				21ABFA5F257C2D1B006A2B57 /* Extension */,
 				6B7EDA8A2572C1E40059F890 /* API */,
 				6B7EDA9B257309090059F890 /* Assets */,
 				6B4CCADF24F6D00500354F19 /* Info.plist */,
@@ -161,13 +168,6 @@
 				6B7EDA862572BD0A0059F890 /* WeatherModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		6B7EDA892572C1D20059F890 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		6B7EDA8A2572C1E40059F890 /* API */ = {
