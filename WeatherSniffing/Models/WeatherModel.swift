@@ -8,81 +8,103 @@
 
 import Foundation
 
-// MARK: - WeatherModel
+
+// MARK: - Welcome
 struct WeatherModel: Codable {
-    var cod: String!
-    var message: Int!
-    var cnt: Int!
-    var city: CityElements!
-    var list: [ListElements]!
+    let cod: String
+    let message, cnt: Int
+    let list: [List]
+    let city: City
 }
 
 // MARK: - City
-struct CityElements: Codable {
+struct City: Codable {
     let id: Int
     let name: String
+    let coord: Coord
     let country: String
-    let population: Int!
-    var timezone: Int!
-    var sunrise: Int!
-    var sunset: Int!
-    let coord: CoordElements!
+    let population, timezone, sunrise, sunset: Int
 }
 
 // MARK: - Coord
-struct CoordElements: Codable {
-    var lat: Double!
-    var lon: Double!
+struct Coord: Codable {
+    let lat, lon: Double
 }
 
 // MARK: - List
-struct ListElements: Codable {
-    var dt: Int!
-    var dtTxt: String!
-    var main: MainClass!
-    var weather: [Weather]!
-    
+struct List: Codable {
+    let dt: Int
+    let main: MainClass
+    let weather: [Weather]
+    let clouds: Clouds
+    let wind: Wind
+    let visibility: Int
+    let pop: Double
+    let sys: Sys
+    let dtTxt: String
+    let rain: Rain?
+
     enum CodingKeys: String, CodingKey {
-        case dt
-        case main
-        case weather
+        case dt, main, weather, clouds, wind, visibility, pop, sys
         case dtTxt = "dt_txt"
+        case rain
     }
+}
+
+// MARK: - Clouds
+struct Clouds: Codable {
+    let all: Int
 }
 
 // MARK: - MainClass
 struct MainClass: Codable {
-    var temp: Double!
-    var feelsLike: Double!
-    var tempMin: Double!
-    var tempMax: Double!
-    var pressure: Int!
-    var humidity: Int!
-    var tempKf: Double!
-    
+    let temp, feelsLike, tempMin, tempMax: Double
+    let pressure, seaLevel, grndLevel, humidity: Int
+    let tempKf: Double
+
     enum CodingKeys: String, CodingKey {
         case temp
-        case pressure
-        case humidity
         case feelsLike = "feels_like"
         case tempMin = "temp_min"
         case tempMax = "temp_max"
+        case pressure
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
+        case humidity
         case tempKf = "temp_kf"
     }
 }
 
+// MARK: - Rain
+struct Rain: Codable {
+    let the3H: Double
+
+    enum CodingKeys: String, CodingKey {
+        case the3H = "3h"
+    }
+}
+
+// MARK: - Sys
+struct Sys: Codable {
+    let pod: Pod
+}
+
+enum Pod: String, Codable {
+    case d = "d"
+    case n = "n"
+}
+
 // MARK: - Weather
 struct Weather: Codable {
-    var id: Int!
-    var icon: String!
-    var main: MainEnum!
-    var weatherDescription: Description!
-    
+    let id: Int
+    let main: MainEnum
+    let weatherDescription: Description
+    let icon: String
+
     enum CodingKeys: String, CodingKey {
-        case id
-        case icon
-        case main
+        case id, main
         case weatherDescription = "description"
+        case icon
     }
 }
 
@@ -95,8 +117,14 @@ enum MainEnum: String, Codable {
 enum Description: String, Codable {
     case brokenClouds = "broken clouds"
     case clearSky = "clear sky"
-    case fewClouds = "few clouds"
     case lightRain = "light rain"
+    case moderateRain = "moderate rain"
     case overcastClouds = "overcast clouds"
     case scatteredClouds = "scattered clouds"
+}
+
+// MARK: - Wind
+struct Wind: Codable {
+    let speed: Double
+    let deg: Int
 }

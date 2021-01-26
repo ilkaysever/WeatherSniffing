@@ -8,22 +8,47 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class RequestManager {
     
-    fileprivate var baseUrl = "http://api.openweathermap.org/data/2.5/forecast?q=London&appid=f29dca0b8344ffbe396499a542c687d8"
+    static let shared = RequestManager()
     
-    init(baseUrl: String) {
-        self.baseUrl = baseUrl
-    }
-    
-    func fetchWeather() {
-        let request = AF.request(baseUrl)
-            .validate()
-        request.responseDecodable(of: WeatherModel.self) { (response) in
-            guard let data = response.value else { return }
-            print(data.city)
-        }
+    func fetchWeatherData(city: String, apiKey: String, response: @escaping(WeatherModel) -> Void, error: @escaping(ResponseError) -> Void) {
+        
+        let baseUrl = "http://api.openweathermap.org/data/2.5/forecast?q=\(city)&appid=\(apiKey)"
+        //        AF.request(baseUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil, interceptor: nil).response { (responseData) in
+        //            guard let data = responseData.data else { return }
+        //            do {
+        //                let weatherData = try JSONDecoder().decode(WeatherModel.self, from: data)
+        //                print("******************\(weatherData)*********************")
+        //            } catch {
+        //                print("*****************Error Decoding***************** == \(error)*********************")
+        //            }
+        //
+        //        }
+        
+        
+//        let request = AF.request(baseUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+//        request.validate()
+//        request.responseData { (responseData) in
+//            switch responseData.result {
+//            case .success:
+//                let waetherData = WeatherModel.decode(responseData.data!)
+//                response(waetherData!)
+//            case .failure:
+//                break
+//            }
+//        }
     }
     
 }
+
+//extension Decodable {
+//
+//    static func decode(_ data: Data) -> Self? {
+//        let decoder = JSONDecoder()
+//        decoder.dataDecodingStrategy = .deferredToData
+//        return try? decoder.decode(self, from: data)
+//    }
+//}

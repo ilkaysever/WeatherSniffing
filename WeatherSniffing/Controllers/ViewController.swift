@@ -10,13 +10,14 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var mainTableView: UITableView!
+    
+    var weatherData: WeatherModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        //fetchWeather()
     }
     
     private func setDelegates() {
@@ -27,13 +28,22 @@ class ViewController: UIViewController {
         mainTableView.register(WeeklyCardTableViewCell.self)
     }
     
-    private func weatherRequest() {
-        
+    func getWeatherData() {
+        let city = "London"
+        let apiKey = "f29dca0b8344ffbe396499a542c687d8"
+        RequestManager.shared.fetchWeatherData(city: city, apiKey: apiKey) { (object) in
+            self.weatherData = object
+            print(self.weatherData)
+        } error: { (error) in
+            print(error)
+        }
+
+
     }
     
-//    @IBAction func crashButton(_ sender: Any) {
-//        fatalError()
-//    }
+    //    @IBAction func crashButton(_ sender: Any) {
+    //        fatalError()
+    //    }
     
 }
 //MARK: - Table View Delegates
@@ -88,14 +98,3 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
-//extension ViewController {
-//    func fetchWeather() {
-//        let request = AF.request("http://api.openweathermap.org/data/2.5/forecast?q=London&appid=f29dca0b8344ffbe396499a542c687d8")
-//            .validate()
-//        request.responseDecodable(of: WeatherModel.self) { (response) in
-//            guard let data = response.value else { return }
-//            print(data.city)
-//        }
-//    }
-//}

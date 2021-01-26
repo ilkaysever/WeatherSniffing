@@ -74,11 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21ABFA5F257C2D1B006A2B57 /* Extension */ = {
+		6B14F1DA25BF553200539087 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6B4CCADF24F6D00500354F19 /* Info.plist */,
+				6BB56F0224FFC74700B93D0A /* GoogleService-Info.plist */,
+				6B4CCACE24F6D00000354F19 /* AppDelegate.swift */,
+				6B4CCAD024F6D00000354F19 /* SceneDelegate.swift */,
+				6B4CCAD724F6D00000354F19 /* WeatherSniffing.xcdatamodeld */,
 			);
-			path = Extension;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		6B4CCAC224F6D00000354F19 = {
@@ -107,14 +112,9 @@
 				6B4CCAE724F6D02D00354F19 /* Views */,
 				6B4CCAE624F6D02300354F19 /* Controllers */,
 				6B4CCAEA24F6D04C00354F19 /* Helpers */,
-				21ABFA5F257C2D1B006A2B57 /* Extension */,
 				6B7EDA8A2572C1E40059F890 /* API */,
 				6B7EDA9B257309090059F890 /* Assets */,
-				6B4CCADF24F6D00500354F19 /* Info.plist */,
-				6BB56F0224FFC74700B93D0A /* GoogleService-Info.plist */,
-				6B4CCACE24F6D00000354F19 /* AppDelegate.swift */,
-				6B4CCAD024F6D00000354F19 /* SceneDelegate.swift */,
-				6B4CCAD724F6D00000354F19 /* WeatherSniffing.xcdatamodeld */,
+				6B14F1DA25BF553200539087 /* Resources */,
 			);
 			path = WeatherSniffing;
 			sourceTree = "<group>";
@@ -532,8 +532,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K35N97823B;
-				INFOPLIST_FILE = WeatherSniffing/Info.plist;
+				DEVELOPMENT_TEAM = 2B2355P26S;
+				INFOPLIST_FILE = WeatherSniffing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ilkaysever.WeatherSniffing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -551,8 +551,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K35N97823B;
-				INFOPLIST_FILE = WeatherSniffing/Info.plist;
+				DEVELOPMENT_TEAM = 2B2355P26S;
+				INFOPLIST_FILE = WeatherSniffing/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -560,7 +560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ilkaysever.WeatherSniffing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

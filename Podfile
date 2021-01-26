@@ -12,5 +12,6 @@ target 'WeatherSniffing' do
   pod 'Firebase/Crashlytics'
   pod 'MBProgressHUD', '1.2.0'
   pod 'Kingfisher', '5.12.0'
+  pod 'SwiftyJSON'
 
 end
