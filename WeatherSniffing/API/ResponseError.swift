@@ -11,11 +11,9 @@ import Foundation
 class ResponseError {
     var code: String?
     var message: String?
-    var title: String?
     
     init(code: String, message: String, title: String) {
         self.code = code
         self.message = message
-        self.title = title
     }
 }

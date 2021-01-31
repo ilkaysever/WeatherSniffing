@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        getWeatherData()
     }
     
     private func setDelegates() {
@@ -31,14 +32,13 @@ class ViewController: UIViewController {
     func getWeatherData() {
         let city = "London"
         let apiKey = "f29dca0b8344ffbe396499a542c687d8"
-        RequestManager.shared.fetchWeatherData(city: city, apiKey: apiKey) { (object) in
-            self.weatherData = object
-            print(self.weatherData)
+        RequestManager.fetchWeatherData(city: city, apiKey: apiKey) { (response) in
+            self.weatherData = response
+            print(self.weatherData ?? "")
         } error: { (error) in
             print(error)
         }
-
-
+        
     }
     
     //    @IBAction func crashButton(_ sender: Any) {
