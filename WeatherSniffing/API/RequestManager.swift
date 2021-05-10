@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class RequestManager {
     
@@ -20,6 +19,7 @@ class RequestManager {
             case .success:
                 do {
                     let weatherData = try JSONDecoder().decode(WeatherModel.self, from: responseData.data!)
+                    response(weatherData)
                     print("******************\(weatherData)*********************")
                 } catch {
                     print("*****************Error Decoding***************** == \(error)*********************")
