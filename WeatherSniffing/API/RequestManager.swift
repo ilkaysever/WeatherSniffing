@@ -20,7 +20,6 @@ class RequestManager {
                 do {
                     let weatherData = try JSONDecoder().decode(WeatherModel.self, from: responseData.data!)
                     response(weatherData)
-                    print("******************\(weatherData)*********************")
                 } catch {
                     print("*****************Error Decoding***************** == \(error)*********************")
                 }
