@@ -85,7 +85,7 @@ DEPENDENCIES:
   - Alamofire (= 5.2)
   - Firebase/Analytics
   - Firebase/Crashlytics
-  - Kingfisher (= 5.12.0)
+  - Kingfisher
   - MBProgressHUD (= 1.2.0)
   - SwiftyJSON
 
@@ -126,6 +126,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 66ea5675f49b6484503ee204acec61fbdd3469c8
+PODFILE CHECKSUM: 8e703791a5a9a47fb07a6f124a260eb3f7fb426f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.0
